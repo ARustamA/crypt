@@ -1,9 +1,10 @@
-import styles from './style.module.css';
-
+import { TextField } from '@mui/material';
+import '../styles.scss';
 export const Login = () => {
   return (
-    <div>
-      <h1 className={styles.header}>Login</h1>
+    <div className="login">
+      <TextField label="Outlined" variant="outlined" placeholder="Введите email" />
+      <TextField label="Outlined" variant="outlined" />
     </div>
   );
 };

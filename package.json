@@ -11,12 +11,19 @@
     "pret": "prettier --write src/**/*.tsx"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.9",
+    "node-sass": "^8.0.0",
     "prettier-plugin-sort-imports": "^1.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1"
+    "react-router-dom": "^6.8.1",
+    "sass": "^1.58.2",
+    "vite-plugin-sass-glob-import": "^2.0.0"
   },
   "devDependencies": {
+    "@types/node-sass": "^4.11.3",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.48.1",

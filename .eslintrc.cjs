@@ -43,10 +43,10 @@ module.exports = {
       'error',
       {
         ignoreCase: false,
-        ignoreDeclarationSort: false,
+        ignoreDeclarationSort: true,
         ignoreMemberSort: false,
         memberSyntaxSortOrder: ['all', 'single', 'multiple', 'none'],
-        allowSeparatedGroups: false,
+        allowSeparatedGroups: true,
       },
     ],
 
