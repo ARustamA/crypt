@@ -1,18 +1,42 @@
 import { Button, TextField, Typography } from '@mui/material';
-import { ILoginProps } from '../../../common/types/auth';
+
+import { IRegisterProps } from '../../../common/types/auth';
 import { FC } from 'react';
 
 import '../styles.scss';
 
-export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX.Element => {
+export const Register: FC<IRegisterProps> = ({
+  setEmail,
+  setPassword,
+  setFirstName,
+  setRepeatPassword,
+  setUsername,
+  navigate,
+}): JSX.Element => {
   return (
     <>
       <Typography variant="h2" fontFamily="Poppins" textAlign="center" fontSize={32}>
-        Авторизация
+        Регистрация
       </Typography>
       <Typography variant="body1" fontFamily="Poppins" textAlign="center">
-        Введите логин и пароль
+        Введите данные для регистрации
       </Typography>
+      <TextField
+        label="Name"
+        variant="outlined"
+        margin="normal"
+        placeholder="Введите имя"
+        fullWidth={true}
+        onChange={(e) => setFirstName(e.target.value)}
+      />
+      <TextField
+        label="Username"
+        variant="outlined"
+        margin="normal"
+        placeholder="Введите username"
+        fullWidth={true}
+        onChange={(e) => setUsername(e.target.value)}
+      />
       <TextField
         type="email"
         label="Email"
@@ -20,7 +44,6 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX
         margin="normal"
         placeholder="Введите email"
         fullWidth={true}
-        //value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
@@ -30,8 +53,16 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX
         variant="outlined"
         placeholder="Введите пароль"
         fullWidth={true}
-        //value={password}
         onChange={(e) => setPassword(e.target.value)}
+      />
+      <TextField
+        type="password"
+        margin="normal"
+        label="Password"
+        variant="outlined"
+        placeholder="Повторите пароль"
+        fullWidth={true}
+        onChange={(e) => setRepeatPassword(e.target.value)}
       />
 
       <Button
@@ -39,17 +70,17 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX
         variant="outlined"
         fullWidth={true}
         sx={{ fontFamily: 'Poppins', marginTop: 2, marginBottom: 1, width: '60%' }}>
-        Войти
+        Зарегистрироваться
       </Button>
       <Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
-        У вас нет аккаунта?
+        У вас есть аккаунт?
         <span
-          className="inciting-text"
-          onClick={() => navigate('/register')}
           role="button"
           tabIndex={0}
+          className="inciting-text"
+          onClick={() => navigate('/login')}
           onKeyDown={() => navigate('/login')}>
-          Регистрация
+          Авторизация
         </span>
       </Typography>
     </>
