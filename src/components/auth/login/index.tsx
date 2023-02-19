@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 import '../styles.scss';
 
-export const Login: FC<ILoginProps> = ({ setEmail, setPassword }): JSX.Element => {
+export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX.Element => {
   return (
     <>
       <Typography variant="h2" fontFamily="Poppins" textAlign="center" fontSize={32}>
@@ -42,7 +42,15 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword }): JSX.Element =
         Войти
       </Button>
       <Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
-        У вас нет аккаунта?<span className="inciting-text">Регистрация</span>
+        У вас нет аккаунта?
+        <span
+          className="inciting-text"
+          onClick={() => navigate('/register')}
+          role="button"
+          tabIndex={0}
+          onKeyDown={() => navigate('/login')}>
+          Регистрация
+        </span>
       </Typography>
     </>
   );

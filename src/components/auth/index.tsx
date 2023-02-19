@@ -1,5 +1,8 @@
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../utils/hook/insex';
 import { instance } from '../../utils/axios/axios';
-import { useLocation } from 'react-router-dom';
+import { AppErrors } from '../../common/errors';
+import { login } from '../../store/slice/auth';
 import { Register } from './register';
 import { FC, useState } from 'react';
 import { Box } from '@mui/material';
@@ -13,31 +16,41 @@ export const AuthRootComponent: FC = (): JSX.Element => {
   const [username, setUsername] = useState('');
   const [firstName, setFirstName] = useState('');
   const location = useLocation();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const onHandleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (location.pathname === '/login') {
-      const userData = {
-        email: email,
-        password: password,
-      };
-      // try {
-      const user = await instance.post('auth/login', userData);
-      //   return user;
-      // } catch (error: any) {
-      //   throw new Error(error);
-      // }
-    } else {
-      if (password === repeatPassword) {
+      try {
         const userData = {
           email: email,
           password: password,
-          repeatPassword: repeatPassword,
-          userName: username,
-          firstName: firstName,
         };
-        const newUser = await instance.post('auth/register', userData);
+        const user = await instance.post('auth/login', userData);
+        await dispatch(login(user.data));
+        navigate('/');
+      } catch (error) {
+        return error;
+      }
+    } else {
+      if (password === repeatPassword) {
+        try {
+          const userData = {
+            email: email,
+            password: password,
+            repeatPassword: repeatPassword,
+            userName: username,
+            firstName: firstName,
+          };
+          const newUser = await instance.post('auth/register', userData);
+          await dispatch(login(newUser.data));
+          navigate('/');
+        } catch (error) {
+          return error;
+        }
       } else {
-        throw new Error('Несовпадают пароли!');
+        throw new Error(AppErrors.PasswordDoNotMatch);
       }
     }
   };
@@ -55,7 +68,7 @@ export const AuthRootComponent: FC = (): JSX.Element => {
           borderRadius={5}
           boxShadow={'5px 5px 10px #ccc'}>
           {location.pathname === '/login' ? (
-            <Login setEmail={setEmail} setPassword={setPassword} />
+            <Login setEmail={setEmail} setPassword={setPassword} navigate={navigate} />
           ) : location.pathname === '/register' ? (
             <Register
               // email={email}
@@ -65,6 +78,7 @@ export const AuthRootComponent: FC = (): JSX.Element => {
               setRepeatPassword={setRepeatPassword}
               setUsername={setUsername}
               setFirstName={setFirstName}
+              navigate={navigate}
             />
           ) : null}
         </Box>

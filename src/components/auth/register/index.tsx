@@ -11,6 +11,7 @@ export const Register: FC<IRegisterProps> = ({
   setFirstName,
   setRepeatPassword,
   setUsername,
+  navigate,
 }): JSX.Element => {
   return (
     <>
@@ -72,7 +73,15 @@ export const Register: FC<IRegisterProps> = ({
         Зарегистрироваться
       </Button>
       <Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
-        У вас есть аккаунт?<span className="incitingText">Авторизация</span>
+        У вас есть аккаунт?
+        <span
+          role="button"
+          tabIndex={0}
+          className="inciting-text"
+          onClick={() => navigate('/login')}
+          onKeyDown={() => navigate('/login')}>
+          Авторизация
+        </span>
       </Typography>
     </>
   );
