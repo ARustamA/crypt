@@ -57,7 +57,11 @@ export const SideBarComponent = (props: any) => {
           width: drawerWidth,
         },
       }}>
-      <Box width="100%">
+      <Box
+        width="100%"
+        sx={{
+          borderBottom: `1px solid ${colors.borderColor}`,
+        }}>
         <Box>
           <FlexBetween>
             <Box className={classes.brand}>
@@ -76,7 +80,26 @@ export const SideBarComponent = (props: any) => {
             )}
           </FlexBetween>
         </Box>
-        <List>{renderMenu}</List>
+        <List
+          sx={{
+            marginBottom: '55px',
+          }}>
+          {renderMenu}
+        </List>
+      </Box>
+      <Box width="100%">
+        <List>
+          <ListItem>
+            <ListItemButton className={classes.navItem}>
+              <ListItemIcon>
+                <LogoutOutlined />
+              </ListItemIcon>
+              <ListItemText>
+                <Typography>Logout</Typography>
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </List>
       </Box>
     </Drawer>
   );
