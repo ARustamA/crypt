@@ -1,5 +1,5 @@
-import { PaletteMode, Theme, createTheme } from '@mui/material';
 import { createContext, useMemo, useState } from 'react';
+import { createTheme } from '@mui/material';
 
 export const tokens = (mode: string) => ({
   ...(mode === 'dark'
@@ -74,7 +74,7 @@ export const tokens = (mode: string) => ({
       }),
 });
 
-export const themeSetting = (mode: PaletteMode) => {
+export const themeSettings: any = (mode: string) => {
   const colors = tokens(mode);
   return {
     palette: {
@@ -136,18 +136,22 @@ export const themeSetting = (mode: PaletteMode) => {
   };
 };
 
-export const ColorModeContext = createContext<Partial<Theme> | any>({
+export const ColorModeContext = createContext<{ toggleColorMode: () => void }>({
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggleColorMode: () => {},
 });
+
 export const useMode = () => {
-  const [mode, setMode] = useState<PaletteMode>('dark');
+  const [mode, setMode] = useState('dark');
+
   const colorMode = useMemo(
     () => ({
       toggleColorMode: () => setMode((prev) => (prev === 'light' ? 'dark' : 'light')),
     }),
     [],
   );
-  const theme: any = useMemo(() => createTheme(themeSetting(mode)), [mode]);
-  return [colorMode, theme];
+
+  const theme: any = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
+  return [theme, colorMode];
 };

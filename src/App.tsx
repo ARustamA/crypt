@@ -7,6 +7,7 @@ import { AuthRootComponent } from './components/auth';
 import { ColorModeContext, useMode } from './theme';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { LayoutComponent } from './components/layout';
 import './index.css';
 
 function App() {
@@ -16,13 +17,15 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Router>
-          <Routes>
-            <Route element={<PrivateRoute />}>
-              <Route path="/" element={<Home />} />
-            </Route>
-            <Route path="/login" element={<AuthRootComponent />} />
-            <Route path="/register" element={<AuthRootComponent />} />
-          </Routes>
+          <LayoutComponent>
+            <Routes>
+              <Route element={<PrivateRoute />}>
+                <Route path="/" element={<Home />} />
+              </Route>
+              <Route path="/login" element={<AuthRootComponent />} />
+              <Route path="/register" element={<AuthRootComponent />} />
+            </Routes>
+          </LayoutComponent>
         </Router>
       </ThemeProvider>
     </ColorModeContext.Provider>
