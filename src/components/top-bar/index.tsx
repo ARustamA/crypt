@@ -16,7 +16,7 @@ export const TopBarComponent = () => {
   const classes = useStyles();
 
   return (
-    <Box display="flex" justifyContent="space-between" px="32px" py="24px">
+    <Box display="flex" justifyContent="space-between" px="32px" py="24px" alignItems="center">
       <Grid>hello {user ? user.firstName : ''}</Grid>
       <Box display="flex">
         <Grid

@@ -10,20 +10,24 @@ export const navMenu = [
     name: 'Главная',
     icon: <HomeOutlined />,
     path: '/',
+    id: 1,
   },
   {
     name: 'Избранные',
     icon: <InsightsOutlined />,
-    path: '/',
+    path: '/watchlist',
+    id: 2,
   },
   {
     name: 'Новости',
     icon: <MenuBookOutlined />,
-    path: '/',
+    path: '/news',
+    id: 3,
   },
   {
     name: 'Настройки',
     icon: <SettingsOutlined />,
-    path: '/',
+    path: '/setting',
+    id: 4,
   },
 ];
