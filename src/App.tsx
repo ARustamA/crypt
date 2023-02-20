@@ -6,8 +6,11 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { AuthRootComponent } from './components/auth';
 import { ColorModeContext, useMode } from './theme';
 
+import { WatchlistComponent } from './components/watchlist';
 import { CssBaseline, ThemeProvider } from '@mui/material';
+import { SettingComponent } from './components/settings';
 import { LayoutComponent } from './components/layout';
+import { NewsComponent } from './components/news';
 import './index.css';
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
             <Routes>
               <Route element={<PrivateRoute />}>
                 <Route path="/" element={<Home />} />
+                <Route path="/watchlist" element={<WatchlistComponent />} />
+                <Route path="/news" element={<NewsComponent />} />
+                <Route path="/setting" element={<SettingComponent />} />
               </Route>
               <Route path="/login" element={<AuthRootComponent />} />
               <Route path="/register" element={<AuthRootComponent />} />
