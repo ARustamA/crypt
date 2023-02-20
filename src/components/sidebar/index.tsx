@@ -1,13 +1,4 @@
 import {
-  ChevronLeftOutlined,
-  ChevronRightOutlined,
-  HomeOutlined,
-  InsightsOutlined,
-  LogoutOutlined,
-  MenuBookOutlined,
-  SettingsOutlined,
-} from '@mui/icons-material/';
-import {
   Box,
   Divider,
   Drawer,
@@ -19,6 +10,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
+import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from '@mui/icons-material/';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FlexBetween } from '../flex-between';
 import { useStyles } from './styles';
