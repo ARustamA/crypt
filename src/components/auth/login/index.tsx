@@ -1,8 +1,7 @@
 import { Button, TextField, Typography } from '@mui/material';
-import { ILoginProps } from '../../../common/types/auth';
-import { FC } from 'react';
+import { ILoginProps } from '@/common/types/auth';
 
-import '../styles.scss';
+import { FC } from 'react';
 
 export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX.Element => {
   return (

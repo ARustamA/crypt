@@ -2,9 +2,11 @@ import { Box, Grid, IconButton, InputBase, useTheme } from '@mui/material';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { useAppSelector } from '../../utils/hook/insex';
-import { ColorModeContext, tokens } from '../../theme';
+
 import SearchIcon from '@mui/icons-material/Search';
+import { ColorModeContext, tokens } from '@/theme';
+
+import { useAppSelector } from '@/utils/hook';
 import { useStyles } from './styles';
 import { useContext } from 'react';
 

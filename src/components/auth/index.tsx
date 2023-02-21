@@ -1,13 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../utils/hook/insex';
-import { instance } from '../../utils/axios/axios';
-import { AppErrors } from '../../common/errors';
-import { login } from '../../store/slice/auth';
+
+import { instance } from '@/utils/axios/axios';
+import { useAppDispatch } from '@/utils/hook';
+import { AppErrors } from '@/common/errors';
+import { login } from '@/store/slice/auth';
 import { Register } from './register';
 import { FC, useState } from 'react';
 import { Box } from '@mui/material';
 import { Login } from './login';
-import './styles.scss';
 
 export const AuthRootComponent: FC = (): JSX.Element => {
   const [email, setEmail] = useState('');

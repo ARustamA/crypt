@@ -13,11 +13,12 @@ import {
 } from '@mui/material';
 import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from '@mui/icons-material/';
 import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../../assets/images/sidebar/logo.svg';
+
+import logo from '@/assets/images/sidebar/logo.svg';
 import { FlexBetween } from '../flex-between';
 import { navMenu } from '../mocks/navigate';
-import { tokens } from '../../theme';
 import { useStyles } from './styles';
+import { tokens } from '@/theme';
 import { useState } from 'react';
 
 export const SideBarComponent = (props: any) => {

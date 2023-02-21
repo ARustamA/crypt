@@ -1,9 +1,7 @@
 import { Button, TextField, Typography } from '@mui/material';
+import { IRegisterProps } from '@/common/types/auth';
 
-import { IRegisterProps } from '../../../common/types/auth';
 import { FC } from 'react';
-
-import '../styles.scss';
 
 export const Register: FC<IRegisterProps> = ({
   setEmail,
