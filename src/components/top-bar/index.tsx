@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton, InputBase, useTheme } from '@mui/material';
+import { Box, Grid, IconButton, InputBase, Typography, useTheme } from '@mui/material';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -12,14 +12,16 @@ import { useStyles } from './styles';
 import { useContext } from 'react';
 
 export const TopBarComponent = () => {
-  const { user } = useAppSelector((state) => state.auth.user);
+  const user = useAppSelector((state) => state.auth.user);
   const theme = useTheme();
   const colorMode = useContext(ColorModeContext);
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
-      <Grid>hello {user ? user.firstName : ''}</Grid>
+      <Grid>
+        <Typography marginLeft={50}>hello {user ? user.firstName : ''}</Typography>
+      </Grid>
       <Box display="flex">
         <Grid className={classes.iconBlock}>
           <IconButton className={classes.themeIcon} onClick={colorMode.toggleColorMode}>

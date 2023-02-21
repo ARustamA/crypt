@@ -37,11 +37,13 @@ export const useStyles = makeStyles((theme: Theme) => {
     navList: { marginBottom: '55px' },
     navItem: {
       cursor: 'pointer',
-
       '&:hover': {
         backgroundColor: '#1900D5 !important',
-        color: 'fff',
+        color: '#fff !important',
         borderRadius: '4px',
+        '& .MuiSvgIcon-root': {
+          color: `${colors.white.DEFAULT} !important`,
+        },
       },
     },
   };
