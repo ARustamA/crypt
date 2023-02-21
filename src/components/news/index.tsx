@@ -1,5 +1,6 @@
-import React from 'react';
+import { FC } from 'react';
 
-export const NewsComponent = () => {
-  return <div>t</div>;
+const NewsComponent: FC = () => {
+  return <div>f</div>;
 };
+export default NewsComponent;

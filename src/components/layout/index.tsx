@@ -1,20 +1,21 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
-import { ILayout } from '@/common/types/layout';
 import { SideBarComponent } from '../sidebar';
 import { TopBarComponent } from '../top-bar';
 import { useStyles } from './styles';
+import { FC, useState } from 'react';
 import { Box } from '@mui/material';
-import { useState } from 'react';
 
-export const LayoutComponent = ({ children }: ILayout) => {
+const LayoutComponent: FC = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(true);
   const location = useLocation();
   const isNoneMobile = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
   return location.pathname === '/login' || location.pathname === '/register' ? (
-    <>{children}</>
+    <>
+      <Outlet />
+    </>
   ) : (
     <Box
       display={isNoneMobile ? 'flex' : 'block'}
@@ -29,8 +30,9 @@ export const LayoutComponent = ({ children }: ILayout) => {
       />
       <Box className={classes.mainSection}>
         <TopBarComponent />
-        {children}
+        <Outlet />
       </Box>
     </Box>
   );
 };
+export default LayoutComponent;

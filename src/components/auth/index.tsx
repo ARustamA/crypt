@@ -9,7 +9,7 @@ import { FC, useState } from 'react';
 import { Box } from '@mui/material';
 import { Login } from './login';
 
-export const AuthRootComponent: FC = (): JSX.Element => {
+const AuthRootComponent: FC = (): JSX.Element => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -93,3 +93,4 @@ export const AuthRootComponent: FC = (): JSX.Element => {
   );
   // return
 };
+export default AuthRootComponent;
