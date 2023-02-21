@@ -1,10 +1,9 @@
-import { ILayout } from '../../common/types/auth/layout';
-import { TopBarComponent } from '../top-bar';
-
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useLocation } from 'react-router-dom';
 
+import { ILayout } from '@/common/types/layout';
 import { SideBarComponent } from '../sidebar';
+import { TopBarComponent } from '../top-bar';
 import { useStyles } from './styles';
 import { Box } from '@mui/material';
 import { useState } from 'react';

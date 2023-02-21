@@ -1,13 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../utils/hook/insex';
-import { instance } from '../../utils/axios/axios';
-import { AppErrors } from '../../common/errors';
-import { login } from '../../store/slice/auth';
+
+import { instance } from '@/utils/axios/axios';
+import { useAppDispatch } from '@/utils/hook';
+import { AppErrors } from '@/common/errors';
+import { login } from '@/store/slice/auth';
 import { Register } from './register';
 import { FC, useState } from 'react';
 import { Box } from '@mui/material';
 import { Login } from './login';
-import './styles.scss';
 
 export const AuthRootComponent: FC = (): JSX.Element => {
   const [email, setEmail] = useState('');
@@ -55,7 +55,13 @@ export const AuthRootComponent: FC = (): JSX.Element => {
     }
   };
   return (
-    <div className="root">
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      flexDirection="column"
+      width="100vw"
+      height="100vh">
       <form className="form" onSubmit={onHandleSubmit}>
         <Box
           display="flex"
@@ -63,8 +69,8 @@ export const AuthRootComponent: FC = (): JSX.Element => {
           alignItems="center"
           flexDirection="column"
           margin="auto"
-          maxWidth={640}
-          padding={5}
+          maxWidth={720}
+          padding={7}
           borderRadius={5}
           boxShadow={'5px 5px 10px #ccc'}>
           {location.pathname === '/login' ? (
@@ -83,7 +89,7 @@ export const AuthRootComponent: FC = (): JSX.Element => {
           ) : null}
         </Box>
       </form>
-    </div>
+    </Box>
   );
   // return
 };

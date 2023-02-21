@@ -1,12 +1,12 @@
 import { Button, TextField, Typography } from '@mui/material';
-import { ILoginProps } from '../../../common/types/auth';
-import { FC } from 'react';
+import { ILoginProps } from '@/common/types/auth';
 
-import '../styles.scss';
+import { Box } from '@mui/system';
+import { FC } from 'react';
 
 export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX.Element => {
   return (
-    <>
+    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
       <Typography variant="h2" fontFamily="Poppins" textAlign="center" fontSize={32}>
         Авторизация
       </Typography>
@@ -38,13 +38,19 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX
         type="submit"
         variant="outlined"
         fullWidth={true}
-        sx={{ fontFamily: 'Poppins', marginTop: 2, marginBottom: 1, width: '60%' }}>
+        sx={{
+          fontFamily: 'Poppins',
+          marginTop: 2,
+          marginBottom: 1,
+          width: '60%',
+          color: 'white',
+          border: '1px solid white',
+        }}>
         Войти
       </Button>
       <Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
         У вас нет аккаунта?
         <span
-          className="inciting-text"
           onClick={() => navigate('/register')}
           role="button"
           tabIndex={0}
@@ -52,6 +58,6 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX
           Регистрация
         </span>
       </Typography>
-    </>
+    </Box>
   );
 };

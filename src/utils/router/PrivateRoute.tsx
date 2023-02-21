@@ -1,7 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-import { useAuth } from '../hook/insex';
-import React, { useState } from 'react';
+import { useAuth } from '../hook';
 
 const PrivateRoute = () => {
   const auth = useAuth();

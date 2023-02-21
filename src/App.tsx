@@ -1,17 +1,17 @@
-import { Home } from './components/Home';
+import { Home } from '@/components/Home';
 
-import { PrivateRoute } from './utils/router/PrivateRoute';
+import { PrivateRoute } from '@/utils/router/PrivateRoute';
 
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { AuthRootComponent } from './components/auth';
-import { ColorModeContext, useMode } from './theme';
+import { AuthRootComponent } from '@/components/auth';
+import { ColorModeContext, useMode } from '@/theme';
 
-import { WatchlistComponent } from './components/watchlist';
+import { WatchlistComponent } from '@/components/watchlist';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { SettingComponent } from './components/settings';
-import { LayoutComponent } from './components/layout';
-import { NewsComponent } from './components/news';
-import './index.css';
+import { SettingComponent } from '@/components/settings';
+import { LayoutComponent } from '@/components/layout';
+import { NewsComponent } from '@/components/news';
+import '@/index.css';
 
 function App() {
   const [theme, colorMode] = useMode();
