@@ -67,7 +67,14 @@ export const Register: FC<IRegisterProps> = ({
         type="submit"
         variant="outlined"
         fullWidth={true}
-        sx={{ fontFamily: 'Poppins', marginTop: 2, marginBottom: 1, width: '60%' }}>
+        sx={{
+          fontFamily: 'Poppins',
+          marginTop: 2,
+          marginBottom: 1,
+          width: '90%',
+          color: 'white',
+          border: '1px solid white',
+        }}>
         Зарегистрироваться
       </Button>
       <Typography variant="body1" sx={{ fontFamily: 'Poppins' }}>
