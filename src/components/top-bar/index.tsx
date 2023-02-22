@@ -1,4 +1,13 @@
-import { Box, Grid, IconButton, InputBase, Typography, useTheme } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Grid,
+  IconButton,
+  InputBase,
+  Toolbar,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
@@ -18,26 +27,28 @@ export const TopBarComponent = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
-      <Grid>
-        <Typography marginLeft={50}>hello {user ? user.firstName : ''}</Typography>
-      </Grid>
-      <Box display="flex">
-        <Grid className={classes.iconBlock}>
-          <IconButton className={classes.themeIcon} onClick={colorMode.toggleColorMode}>
-            {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
-          </IconButton>
-          <IconButton>
-            <NotificationsNoneIcon />
-          </IconButton>
+    <AppBar className={classes.appBar} position="static">
+      <Toolbar className={classes.toolbar}>
+        <Grid>
+          <Typography>hello {user ? user.firstName : ''}</Typography>
         </Grid>
-        <Grid className={classes.searchBlock}>
-          <IconButton className={classes.searchIcon}>
-            <SearchIcon />
-          </IconButton>
-          <InputBase className={classes.searchInput} placeholder="Поиск..." />
-        </Grid>
-      </Box>
-    </Box>
+        <Box display="flex">
+          <Grid className={classes.iconBlock}>
+            <IconButton className={classes.themeIcon} onClick={colorMode.toggleColorMode}>
+              {theme.palette.mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
+            <IconButton>
+              <NotificationsNoneIcon />
+            </IconButton>
+          </Grid>
+          <Grid className={classes.searchBlock}>
+            <IconButton className={classes.searchIcon}>
+              <SearchIcon />
+            </IconButton>
+            <InputBase className={classes.searchInput} placeholder="Поиск..." />
+          </Grid>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };

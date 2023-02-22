@@ -13,7 +13,7 @@ import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from '@mui/
 import { useNavigate } from 'react-router-dom';
 
 import logo from '@/assets/images/sidebar/logo.svg';
-import { FlexBetween } from '../flex-between';
+import { FlexBetween } from './flex-between';
 import { navMenu } from '../mocks/navigate';
 import { useStyles } from './styles';
 import { useState } from 'react';

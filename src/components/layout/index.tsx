@@ -23,8 +23,8 @@ const LayoutComponent: FC = (): JSX.Element => {
       height="100%"
       justifyContent="space-between">
       <SideBarComponent
-        isNoneMobile={isNoneMobile}
         drawerWidth="250px"
+        isNoneMobile={isNoneMobile}
         setIsOpen={setIsOpen}
         isOpen={isOpen}
       />

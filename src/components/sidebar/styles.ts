@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme: Theme) => {
       display: 'flex',
       alignItems: 'center',
       gap: '10px',
-      padding: '30px 15px',
+      padding: '15px 15px',
       cursor: 'pointer',
     },
     drawer: {
@@ -23,7 +23,6 @@ export const useStyles = makeStyles((theme: Theme) => {
         color: theme.palette.secondary.main,
         backgroundColor: theme.palette.primary.main,
         boxSizing: 'border-box',
-        width: 250,
       },
     },
     boxBorder: {
