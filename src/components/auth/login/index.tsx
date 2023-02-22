@@ -22,9 +22,7 @@ export const Login: FC<ILoginProps> = ({ navigate, register, errors }): JSX.Elem
         placeholder="Введите email"
         fullWidth={true}
         helperText={errors.email ? `${errors.email.message}` : ''}
-        {...register('email', {
-          required: 'Это обязательное поле!',
-        })}
+        {...register('email')}
       />
       <TextField
         error={!!errors.password}
@@ -34,11 +32,8 @@ export const Login: FC<ILoginProps> = ({ navigate, register, errors }): JSX.Elem
         variant="outlined"
         placeholder="Введите пароль"
         fullWidth={true}
-        helperText={errors.email ? `${errors.email.message}` : ''}
-        {...register('password', {
-          required: 'Это обязательное поле!',
-          minLength: 6,
-        })}
+        helperText={errors.password ? `${errors.password.message}` : ''}
+        {...register('password')}
       />
 
       <Button

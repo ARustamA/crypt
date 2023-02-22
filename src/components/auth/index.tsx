@@ -1,10 +1,12 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import { yupResolver } from '@hookform/resolvers/yup';
 import { instance } from '@/utils/axios/axios';
 import { useAppDispatch } from '@/utils/hook';
 import { AppErrors } from '@/common/errors';
 import { login } from '@/store/slice/auth';
 import { useForm } from 'react-hook-form';
+import { LoginSchema } from '@/utils/yup';
 import { Register } from './register';
 import { FC, useState } from 'react';
 import { Box } from '@mui/material';
@@ -23,7 +25,10 @@ const AuthRootComponent: FC = (): JSX.Element => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm({
+    mode: 'onSubmit',
+    resolver: yupResolver(LoginSchema),
+  });
   const onHandleSubmitForm = async (data: any) => {
     if (location.pathname === '/login') {
       try {
