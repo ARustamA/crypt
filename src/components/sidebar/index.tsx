@@ -8,6 +8,7 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
+  useTheme,
 } from '@mui/material';
 import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from '@mui/icons-material/';
 import { useNavigate } from 'react-router-dom';
@@ -22,10 +23,10 @@ export const SideBarComponent = (props: any) => {
   const [active, setActive] = useState('');
   const { isNoneMobile, drawerWidth, setIsOpen, isOpen } = props;
   const classes = useStyles();
-
-  const navigate = useNavigate();
-  // const theme = useTheme();
   // const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
+  const theme = useTheme();
+
   const renderMenu = navMenu.map((item): JSX.Element => {
     return (
       <ListItem key={item.id}>
@@ -45,7 +46,15 @@ export const SideBarComponent = (props: any) => {
       open={isOpen}
       onClose={() => setIsOpen(false)}
       variant="persistent"
-      className={classes.drawer}>
+      sx={{
+        width: drawerWidth,
+        '& .MuiDrawer-paper': {
+          color: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.main,
+          boxSizing: 'border-box',
+          width: drawerWidth,
+        },
+      }}>
       <Box className={classes.boxBorder}>
         <Box>
           <FlexBetween>

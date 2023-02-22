@@ -18,13 +18,7 @@ export const useStyles = makeStyles((theme: Theme) => {
       padding: '15px 15px',
       cursor: 'pointer',
     },
-    drawer: {
-      '&.MuiDrawer-paper': {
-        color: theme.palette.secondary.main,
-        backgroundColor: theme.palette.primary.main,
-        boxSizing: 'border-box',
-      },
-    },
+
     boxBorder: {
       width: '100%',
       borderBottom: `1px solid ${colors.borderColor}`,
