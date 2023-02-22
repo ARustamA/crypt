@@ -4,7 +4,7 @@ import { ILoginProps } from '@/common/types/auth';
 import { Box } from '@mui/system';
 import { FC } from 'react';
 
-export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX.Element => {
+export const Login: FC<ILoginProps> = ({ navigate, register, errors }): JSX.Element => {
   return (
     <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center">
       <Typography variant="h2" fontFamily="Poppins" textAlign="center" fontSize={32}>
@@ -14,24 +14,31 @@ export const Login: FC<ILoginProps> = ({ setEmail, setPassword, navigate }): JSX
         Введите логин и пароль
       </Typography>
       <TextField
+        error={!!errors.email}
         type="email"
         label="Email"
         variant="outlined"
         margin="normal"
         placeholder="Введите email"
         fullWidth={true}
-        //value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        helperText={errors.email ? `${errors.email.message}` : ''}
+        {...register('email', {
+          required: 'Это обязательное поле!',
+        })}
       />
       <TextField
+        error={!!errors.password}
         type="password"
         margin="normal"
         label="Password"
         variant="outlined"
         placeholder="Введите пароль"
         fullWidth={true}
-        //value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        helperText={errors.email ? `${errors.email.message}` : ''}
+        {...register('password', {
+          required: 'Это обязательное поле!',
+          minLength: 6,
+        })}
       />
 
       <Button

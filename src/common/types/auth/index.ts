@@ -1,3 +1,5 @@
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form/dist/types';
+
 export interface IRegisterProps {
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
@@ -6,10 +8,10 @@ export interface IRegisterProps {
   setFirstName: (value: string) => void;
   navigate: (to: string) => void;
 }
-export interface ILoginProps {
-  setEmail: (value: string) => void;
-  setPassword: (value: string) => void;
+export interface ILoginProps<TFieldValues extends FieldValues = FieldValues, TContext = any> {
   navigate: (to: string) => void;
+  register: UseFormRegister<TFieldValues>;
+  errors: FieldErrors<FieldValues>;
 }
 export interface IAuthState {
   user: IPublicUser;
