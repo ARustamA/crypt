@@ -13,6 +13,7 @@ export const useStyles = makeStyles(() => {
     },
     toolbar: {
       justifyContent: 'space-between',
+      padding: '10px 30px',
     },
 
     themeIcon: {
@@ -23,7 +24,11 @@ export const useStyles = makeStyles(() => {
       gap: '16px',
       borderRadius: '8px',
       marginLeft: '28px',
-      backgroundColor: `${colors.primary[600]} `,
+      backgroundColor: `${colors.primary[600]}`,
+    },
+    menuIcon: {
+      cursor: 'pointer',
+      marginRight: '10px',
     },
     searchIcon: {
       '&:hover': {

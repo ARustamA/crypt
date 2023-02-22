@@ -1,14 +1,14 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import { SideBarComponent } from '../sidebar';
+import { SidebarComponent } from '../sidebar';
 import { TopBarComponent } from '../top-bar';
 import { useStyles } from './styles';
 import { FC, useState } from 'react';
 import { Box } from '@mui/material';
 
 const LayoutComponent: FC = (): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isNoneMobile = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
@@ -22,14 +22,14 @@ const LayoutComponent: FC = (): JSX.Element => {
       width="100%"
       height="100%"
       justifyContent="space-between">
-      <SideBarComponent
+      <SidebarComponent
         drawerWidth="250px"
         isNoneMobile={isNoneMobile}
         setIsOpen={setIsOpen}
         isOpen={isOpen}
       />
       <Box className={classes.mainSection}>
-        <TopBarComponent />
+        <TopBarComponent setIsOpen={setIsOpen} isOpen={isOpen} isNoneMobile={isNoneMobile} />
         <Outlet />
       </Box>
     </Box>
