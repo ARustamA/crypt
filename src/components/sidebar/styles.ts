@@ -4,12 +4,11 @@ import { tokens } from '@/theme';
 
 export const useStyles = makeStyles((theme: Theme) => {
   const colors = tokens(theme.palette.mode);
+
   return {
-    root: {
-      '&:hover': {
-        backgroundColor: '#1900D5 !important',
-        color: 'fff',
-      },
+    navBlock: {
+      width: '100%',
+      borderBottom: `1px solid ${colors.borderColor}`,
     },
     brand: {
       display: 'flex',
@@ -18,33 +17,26 @@ export const useStyles = makeStyles((theme: Theme) => {
       padding: '30px 15px',
       cursor: 'pointer',
     },
-    drawer: {
-      '&.MuiDrawer-paper': {
-        color: theme.palette.secondary.main,
-        backgroundColor: theme.palette.primary.main,
-        boxSizing: 'border-box',
-        width: 250,
-      },
+    brandTitle: {
+      color: `${theme.palette.mode === 'dark' ? colors.white.DEFAULT : colors.black.DEFAULT}`,
     },
-    boxBorder: {
-      width: '100%',
-      borderBottom: `1px solid ${colors.borderColor}`,
+    navList: {
+      marginBottom: '55px',
     },
-    logoText: {
-      fontSize: '32px',
-      color: theme.palette.mode === 'dark' ? colors.white.DEFAULT : colors.black.DEFAULT,
-    },
-    navList: { marginBottom: '55px' },
     navItem: {
-      cursor: 'pointer',
       '&:hover': {
         backgroundColor: '#1900D5 !important',
-        color: '#fff !important',
+        color: '#fff',
         borderRadius: '4px',
         '& .MuiSvgIcon-root': {
           color: `${colors.white.DEFAULT} !important`,
         },
       },
+    },
+    active: {
+      backgroundColor: '#1900D5 !important',
+      color: '#fff !important',
+      borderRadius: '4px !important',
     },
   };
 });

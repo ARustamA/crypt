@@ -5,14 +5,15 @@ export const useStyles = makeStyles(() => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return {
-    root: {
-      display: 'flex',
+    appBar: {
+      position: 'static',
+      borderBottom: ` 1px solid ${colors.borderColor}`,
+      background: `${colors.primary.DEFAULT}`,
+      boxShadow: 'none !important',
+    },
+    toolbar: {
       justifyContent: 'space-between',
-      padding: '16px 24px',
-      alignItems: 'center',
-      backgroundColor: colors.primary.DEFAULT,
-
-      borderBottom: `1px solid ${colors.borderColor}`,
+      padding: '10px 30px',
     },
 
     themeIcon: {
@@ -25,18 +26,22 @@ export const useStyles = makeStyles(() => {
       marginLeft: '28px',
       backgroundColor: `${colors.primary[600]}`,
     },
+    menuIcon: {
+      cursor: 'pointer',
+      marginRight: '10px',
+    },
     searchIcon: {
       '&:hover': {
         backgroundColor: 'transparent !important',
       },
     },
     searchInput: {
-      padding: '12px 10px',
+      padding: '6px 10px',
     },
     iconBlock: {
       paddingRight: '35px',
-      paddingTop: '10px',
-      borderRight: `1px solid ${colors.borderColor}`,
+      paddingTop: '6px',
+      borderRight: `1px solid ${colors.borderColor} `,
     },
   };
 });

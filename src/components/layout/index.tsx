@@ -1,36 +1,38 @@
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
-import { ILayout } from '@/common/types/layout';
-import { SideBarComponent } from '../sidebar';
+import { SidebarComponent } from '../sidebar';
 import { TopBarComponent } from '../top-bar';
 import { useStyles } from './styles';
+import { FC, useState } from 'react';
 import { Box } from '@mui/material';
-import { useState } from 'react';
 
-export const LayoutComponent = ({ children }: ILayout) => {
-  const [isOpen, setIsOpen] = useState(true);
+const LayoutComponent: FC = (): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isNoneMobile = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
   return location.pathname === '/login' || location.pathname === '/register' ? (
-    <>{children}</>
+    <>
+      <Outlet />
+    </>
   ) : (
     <Box
       display={isNoneMobile ? 'flex' : 'block'}
       width="100%"
       height="100%"
       justifyContent="space-between">
-      <SideBarComponent
-        isNoneMobile={isNoneMobile}
+      <SidebarComponent
         drawerWidth="250px"
+        isNoneMobile={isNoneMobile}
         setIsOpen={setIsOpen}
         isOpen={isOpen}
       />
       <Box className={classes.mainSection}>
-        <TopBarComponent />
-        {children}
+        <TopBarComponent setIsOpen={setIsOpen} isOpen={isOpen} isNoneMobile={isNoneMobile} />
+        <Outlet />
       </Box>
     </Box>
   );
 };
+export default LayoutComponent;

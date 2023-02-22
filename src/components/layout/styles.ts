@@ -6,10 +6,9 @@ export const useStyles = makeStyles({
     width: '100%',
   },
   mainSection: {
-    width: '90%',
-
     display: 'flex',
-    justifyContent: 'center',
+    flexGrow: 1,
     flexDirection: 'column',
+    justifyContent: 'center',
   },
 });
